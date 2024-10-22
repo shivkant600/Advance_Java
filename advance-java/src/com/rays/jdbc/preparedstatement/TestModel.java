@@ -2,32 +2,70 @@ package com.rays.jdbc.preparedstatement;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.List;
 
 public class TestModel {
 
 	public static void main(String[] args) throws Exception {
 
-		testAdd();
+		//testAdd();
+		// testdelete();
+		// testupdate();
+	//	testsearch();
+		//testAuthenticate();
+	  
+	}
+
+	private static void testAuthenticate() throws Exception {
+		UserModel model = new UserModel();
 		
-		//testdelete();
-		//testupdate();
+		UserBean Bean = model.Authenticate("kamal@gmail.com", "pass123");
+		
+		if(Bean != null) {
+			System.out.println(Bean.getFirstName());
+			System.out.println(Bean.getLastName());
+		}
+		else {
+			System.out.println("user not found");
+		}
 		
 		
+	}
+
+	private static void testsearch() throws Exception {
+		UserModel model = new UserModel();
+
+		UserBean bean = new UserBean();
+
+		List list = model.search();
+		Iterator it = list.iterator();
+		while (it.hasNext()) {
+			bean = (UserBean) it.next();
+			System.out.print(bean.getId());
+			System.out.print("\t" + bean.getFirstName());
+			System.out.print("\t" + bean.getLastName());
+			System.out.print("\t" + bean.getUsername());
+			System.out.print("\t" + bean.getPassword());
+			System.out.print("\t" + bean.getAddress());
+			System.out.println("\t" + bean.getDob());
+
+			
+		}
 
 	}
 
 	private static void testdelete() throws Exception {
-	 UserModel model = new UserModel();
-	 
-	 model.delete(5);
-	          
-		
+		UserModel model = new UserModel();
+
+		model.delete(6);
+
 	}
 
-	private static void testUpdate()throws Exception{
-		
+	private static void testUpdate() throws Exception {
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		
+
 		UserModel model = new UserModel();
 		UserBean Bean = new UserBean();
 		Bean.setId(1);
@@ -36,14 +74,10 @@ public class TestModel {
 		Bean.setUsername("paas@123");
 		Bean.setPassword("patel123");
 		Bean.setAddress("mumbai");
-		 Bean.setDob(sdf.parse("2004-02-14"));
-		
-	      model.update(Bean);
-		
-		
-		
-		
-		
+		Bean.setDob(sdf.parse("2004-02-14"));
+
+		model.update(Bean);
+
 	}
 
 	private static void testAdd() throws Exception {
@@ -54,7 +88,7 @@ public class TestModel {
 
 		UserBean bean = new UserBean();
 
-		bean.setId(5);
+		bean.setId(6);
 		bean.setFirstName("Kamal");
 		bean.setLastName("Sharma");
 		bean.setUsername("kamal@gmail.com");
