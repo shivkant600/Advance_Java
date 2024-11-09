@@ -12,10 +12,12 @@ public class TestModel {
 		//testAdd();
 		// testdelete();
 		// testupdate();
-	//	testsearch();
+		testsearch();
 		//testAuthenticate();
 	  
 	}
+	
+	////////////////////////////////////////
 
 	private static void testAuthenticate() throws Exception {
 		UserModel model = new UserModel();
@@ -28,20 +30,35 @@ public class TestModel {
 		}
 		else {
 			System.out.println("user not found");
-		}
-		
-		
+		}	
 	}
-
+	
+	
+   /////////////////////////////////////////////////////////
 	private static void testsearch() throws Exception {
+		
+		
+		
 		UserModel model = new UserModel();
+		
 
 		UserBean bean = new UserBean();
-
-		List list = model.search();
+        
+          bean.setFirstName("anshit");
+		
+	//	bean.setUsername("paas@123");
+		
+	//	bean.setLastName("patel");
+		
+		List list = model.search(bean);
+		
+		
 		Iterator it = list.iterator();
+		
 		while (it.hasNext()) {
+			
 			bean = (UserBean) it.next();
+			
 			System.out.print(bean.getId());
 			System.out.print("\t" + bean.getFirstName());
 			System.out.print("\t" + bean.getLastName());
