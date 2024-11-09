@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +8,16 @@
 </head>
 <body>
 
-	<%=request.getParameter("firstName")%>
-	<%=request.getParameter("lastName")%>
-	<%=request.getParameter("UserName")%>
-	<%=request.getParameter("password")%>
-	<%=request.getParameter("address")%>
-	<%=request.getParameter("Dob")%>
+<%=request.getParameter("firstName") %>
+<br>
+<%=request.getParameter("lastName") %>
+<br>
+<%=request.getParameter("loginid") %>
+<br>
+<%=request.getParameter("password") %>
+<br>
+<%=request.getParameter("address") %>
+<br>
+<%=request.getParameter("dob") %>
 </body>
 </html>

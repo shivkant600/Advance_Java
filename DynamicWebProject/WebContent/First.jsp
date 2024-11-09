@@ -7,60 +7,49 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<form action="Second.jsp">
-
 		<table>
-
 			<tr>
-				<th>firstName:</th>
-
+				<th>FirstName:</th>
 				<td><input type="text" name="firstName"
-					placeholder="Enter First Name"></td>
+					placeholder="enter first name"></td>
 			</tr>
 
-
-
 			<tr>
-				<th>lastName:</th>
-
+				<th>LastName:</th>
 				<td><input type="text" name="lastName"
-					placeholder="Enter last Name"></td>
-			</tr>
-
-
-
-			<tr>
-				<th>UserName</th>
-				<td><input type="text" Name="UserName"
-					PlaceHolder="Enter last Name"></td>
+					placeholder="enter lastName"></td>
 			</tr>
 
 			<tr>
-				<th>password:</th>
-				<td><input type="text" Name="password"
-					PlaceHolder="enter password"></td>
+				<th>LoginId:</th>
+				<td><input type="text" name="loginid"
+					placeHolder="enter login id"></td>
 			</tr>
 
 			<tr>
-				<th>address:</th>
-				<td><input type="text" Name="address"
-					placeHolder="enter address"></td>
+				<th>Password:</th>
+				<td><input type="text" name="password"
+					placeholder="enter password"></td>
+
 			</tr>
+			<tr>
 
+				<th>Address:</th>
+				<td><input type="text" name="address"
+					placeholder="Enter Address"></td>
 
+			</tr>
 			<tr>
 				<th>Dob:</th>
-				<td><input type="text" Name="Dob" placeholder="enter dob">
+				<td><input type="text" name="dob" placeholder="enter dob">
 				</td>
 			</tr>
-
 			<tr>
 				<th></th>
-				<td><input type="submit"></td>
+				<td><input type="submit"> </t>
 			</tr>
-
-
 		</table>
+	</form>
 </body>
 </html>
