@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<form action="FirstServlet">
 
 
@@ -17,18 +18,31 @@
 			<tr>
 				<th>FirstName :</th>
 				<td><input type="text" name="firstname"
+=======
+	<form action="Second.jsp">
+		<table>
+			<tr>
+				<th>FirstName:</th>
+				<td><input type="text" name="firstName"
+>>>>>>> e7f2ed83b6ff7e0798b1c90bb719d58f345130cc
 					placeholder="enter first name"></td>
 			</tr>
 
 			<tr>
 				<th>LastName:</th>
+<<<<<<< HEAD
 				<td><input type="text" name="lastname"
 					placeholder="enter lastname"></td>
 
+=======
+				<td><input type="text" name="lastName"
+					placeholder="enter lastName"></td>
+>>>>>>> e7f2ed83b6ff7e0798b1c90bb719d58f345130cc
 			</tr>
 
 			<tr>
 				<th>LoginId:</th>
+<<<<<<< HEAD
 				<td><input type="email" Name="username"
 					placeholder="enter username"></td>
 			</tr>
@@ -56,6 +70,34 @@
                 <th></th>
                 <td><input type="submit"></td>
                 </tr>
+=======
+				<td><input type="text" name="loginid"
+					placeHolder="enter login id"></td>
+			</tr>
+
+			<tr>
+				<th>Password:</th>
+				<td><input type="text" name="password"
+					placeholder="enter password"></td>
+
+			</tr>
+			<tr>
+
+				<th>Address:</th>
+				<td><input type="text" name="address"
+					placeholder="Enter Address"></td>
+
+			</tr>
+			<tr>
+				<th>Dob:</th>
+				<td><input type="text" name="dob" placeholder="enter dob">
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td><input type="submit"> </t>
+			</tr>
+>>>>>>> e7f2ed83b6ff7e0798b1c90bb719d58f345130cc
 		</table>
 	</form>
 </body>
