@@ -1,3 +1,5 @@
+
+<%@page import="com.rays.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,8 +10,13 @@
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
+
+	<%
+		UserBean bean = (UserBean) request.getAttribute("bean");
+	%>
+
 	<center>
-		<form action="UserRegistrationCtl" method="post">
+		<form action="UserCtl.do" method="post">
 
 			<br> <br> <br>
 
@@ -25,43 +32,65 @@
 				}
 			%>
 
-			<h1>User Registration</h1>
+			<%
+				if (bean != null) {
+			%>
+			<h1>Update User</h1>
+			<%
+				} else {
+			%>
+			<h1>Add User</h1>
+			<%
+				}
+			%>
+
+
 
 			<table>
 
+				<td><input type="hidden" name="id"
+					value="<%=bean != null ? bean.getId() : ""%>"></td>
+
 				<tr>
-			
 					<th>FirstName:</th>
 					<td><input type="text" name="firstName"
+						value="<%=bean != null ? bean.getFirstname() : ""%>"
 						placeholder="Enter First Name"></td>
 				</tr>
 				<tr>
 					<th>LastName:</th>
 					<td><input type="text" name="lastName"
+						value="<%=bean != null ? bean.getLastname() : ""%>"
 						placeholder="Enter Last Name"></td>
 				</tr>
 				<tr>
 					<th>LoginId:</th>
 					<td><input type="email" name="loginId"
+						value="<%=bean != null ? bean.getLoginid() : ""%>"
 						placeholder="Enter your LoginId"></td>
 				</tr>
 				<tr>
 					<th>password:</th>
 					<td><input type="password" name="password"
+						value="<%=bean != null ? bean.getPassword() : ""%>"
 						placeholder="Enter your Password"></td>
 				</tr>
 				<tr>
 					<th>Address:</th>
 					<td><input type="text" name="address"
+						value="<%=bean != null ? bean.getAddress() : ""%>"
 						placeholder="Enter your Address"></td>
 				</tr>
 				<tr>
 					<th>DOB:</th>
-					<td><input type="date" name="dob" placeholder="Enter your dob"></td>
+					<td><input type="date" name="dob"
+						value="<%=bean != null ? bean.getDob() : ""%>"
+						placeholder="Enter your dob"></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit"></td>
+					<td><input type="submit" name="operation"
+						value="<%=bean != null ? "update" : "save"%>"></td>
 				</tr>
 
 			</table>

@@ -32,9 +32,8 @@ public class TestConnection {
 			System.out.println(rs.getString(3));
 			System.out.println(rs.getString(4));
 			System.out.println(rs.getString(5));
-			
-			System.out.println(rs.getString(6));
 			System.out.println(rs.getDate(7));
+			System.out.println(rs.getString(6));
 		}
 
 	}

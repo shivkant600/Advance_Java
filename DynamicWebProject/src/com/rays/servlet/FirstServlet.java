@@ -9,29 +9,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/FirstServlet")
-	public class FirstServlet extends HttpServlet {
-	
+public class FirstServlet extends HttpServlet {
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	System.out.println("in do get method");
-	response.sendRedirect("First.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		System.out.println("in do get method");
+		response.sendRedirect("First.jsp");
+
 	}
-	
-	
-	
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("in do post method");
-		System.out.println(request.getParameter("firstname"));
-		System.out.println(request.getParameter("lastname"));
-		System.out.println(request.getParameter("username"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		System.out.println("in doPost Method...");
+		System.out.println(request.getParameter("firstName"));
+		System.out.println(request.getParameter("lastName"));
+		System.out.println(request.getParameter("loginId"));
 		System.out.println(request.getParameter("password"));
 		System.out.println(request.getParameter("address"));
 		System.out.println(request.getParameter("dob"));
-	
+
 	}
 
-		
 }

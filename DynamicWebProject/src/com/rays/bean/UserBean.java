@@ -6,7 +6,7 @@ public class UserBean {
 	private int id;
 	private String firstname;
 	private String lastname;
-	private String username;
+	private String Loginid;
 	private String password;
 	private String address;
 	private Date dob;
@@ -30,11 +30,12 @@ public class UserBean {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public String getUsername() {
-		return username;
+
+	public String getLoginid() {
+		return Loginid;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLoginid(String loginid) {
+		Loginid = loginid;
 	}
 	public String getPassword() {
 		return password;
