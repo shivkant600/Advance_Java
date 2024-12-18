@@ -60,7 +60,7 @@
 		<table border="1px" width="100%">
 
 
-			<tr style="background: pink">
+			<tr style="background: pink" align="center">
 				<th>Delete</th>
 				<th>First Name</th>
 				<th>Last Name</th>

@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.protocol.Resultset;
 import com.rays.bean.MarksheetBean;
 import com.rays.util.JDBCDataSource;
 
@@ -53,16 +55,16 @@ public class MarksheetModel {
 		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement(
-				"update st_marksheet set id=?,rollno =?,name=?,physics =?,chemistry =?,maths =? where id = ?");
+				"update st_marksheet set rollno =?,name=?,physics =?,chemistry =?,maths =? where id = ?");
 
-		pstmt.setInt(1, Bean.getId());
-		pstmt.setInt(2, Bean.getRollno());
-		pstmt.setString(3, Bean.getName());
-		pstmt.setInt(4, Bean.getPhysics());
-		pstmt.setInt(5, Bean.getChemistry());
-		pstmt.setInt(6, Bean.getMaths());
+	
+		pstmt.setInt(1, Bean.getRollno());
+		pstmt.setString(2, Bean.getName());
+		pstmt.setInt(3, Bean.getPhysics());
+		pstmt.setInt(4, Bean.getChemistry());
+		pstmt.setInt(5, Bean.getMaths());
 
-		pstmt.setInt(7, Bean.getId());
+		pstmt.setInt(6, Bean.getId());
 
 		int i = pstmt.executeUpdate();
 
@@ -127,7 +129,15 @@ public class MarksheetModel {
 		if (bean != null) {
 			if (bean.getName() != null && bean.getName().length() > 0) {
 
-				sql.append("and name like '" + bean.getName() + "'");
+				sql.append(" and name like '" + bean.getName() + "'");
+			}
+		}
+
+		if (bean != null) {
+
+			if (bean.getRollno() != 0 && bean.getRollno() > 0) {
+					 
+				sql.append(" and rollno = " + bean.getRollno() + "");
 			}
 		}
 
@@ -182,5 +192,34 @@ public class MarksheetModel {
 		return pk + 1;
 
 	}
+	
+	public MarksheetBean findbyrollno(int rollno) throws Exception {
+		
+		Connection conn = JDBCDataSource.getConnection();
+		
+		PreparedStatement pstmt = conn.prepareStatement("select * from st_user where rollno = ?");
 
+		pstmt.setInt(1, rollno);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		MarksheetBean bean = null;
+		
+		while(rs.next()) {
+			
+			bean = new MarksheetBean();
+		
+		bean.setId(rs.getInt(1));
+		
+		bean.setRollno(rs.getInt(2));
+		bean.setName(rs.getString(3));
+		bean.setPhysics(rs.getInt(4));
+		bean.setChemistry(rs.getInt(5));
+		bean.setMaths(rs.getInt(5));
+				
+	}
+	return bean;
+
+
+}
 }

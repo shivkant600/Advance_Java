@@ -18,12 +18,36 @@ public class MarksheetCtl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.sendRedirect("MarksheetView.jsp");
+		String rollno = request.getParameter("rollno");
+
+		System.out.println("rollno" + rollno);
+
+		MarksheetModel model = new MarksheetModel();
+		MarksheetBean bean = new MarksheetBean();
+		if (rollno != null) {
+
+			try {
+				bean = model.findbyROllno(Integer.parseInt(rollno));
+
+				request.setAttribute("bean", bean);
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("MarksheetView.jsp");
+		rd.forward(request, response);
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		String op = request.getParameter("operation");
+		System.out.println("op==" + op);
 		MarksheetBean bean = new MarksheetBean();
 		MarksheetModel model = new MarksheetModel();
 
@@ -32,26 +56,34 @@ public class MarksheetCtl extends HttpServlet {
 		String physics = request.getParameter("physics");
 		String chemistry = request.getParameter("chemistry");
 		String maths = request.getParameter("maths");
-		try { 
+		try {
 			bean.setRollno(Integer.parseInt(rollno));
 			bean.setName(name);
 			bean.setPhysics(Integer.parseInt(physics));
 			bean.setChemistry(Integer.parseInt(chemistry));
 			bean.setMaths(Integer.parseInt(maths));
-			 
-			
 
-			model.add(bean);
-			
-			request.setAttribute("msg", "data added succesfully");
-			
+			if (op.equals("save")) {
 
+				model.add(bean);
+
+				request.setAttribute("msg", "data added succesfully");
+			}
+
+			else if (op.equals("update")) {
+				System.out.println("idddd");
+				bean.setId(Integer.parseInt(request.getParameter("id")));
+
+				request.setAttribute("bean", bean);
+				model.update(bean);
+				request.setAttribute("msg", "data update succesfully");
+
+			}
+
+			RequestDispatcher rd = request.getRequestDispatcher("MarksheetView.jsp");
+			rd.forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher("MarksheetView.jsp");
-		rd.forward(request, response);
-			}
+	}
 }

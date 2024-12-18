@@ -91,6 +91,13 @@
 					<th></th>
 					<td><input type="submit" name="operation"
 						value="<%=bean != null ? "update" : "save"%>"></td>
+						
+						
+					<td align="center"><input type="submit" name="operation" value="back"%>
+					</td>
+				
+				
+					
 				</tr>
 
 			</table>

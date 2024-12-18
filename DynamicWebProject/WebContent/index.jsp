@@ -6,13 +6,13 @@
 <meta charset="ISO-8859-1">
 <title>ORS</title>
 </head>
-<body>
+<body style="background-image: url('image/green.jpg.jpg'); background-size: cover; background-repeat: no-repeat;" >
 	<center>
 
 		<br> <br> <br> <br> <br> <br>
 
-		<h1>
-			<a href="WelcomeCtl">Welcome To my Application</a>
+		<h1 >
+		<a  href="WelcomeCtl">Welcome To my Application</a>
 		</h1>
 	</center>
 </body>

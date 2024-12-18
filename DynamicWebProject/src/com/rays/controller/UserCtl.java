@@ -77,7 +77,7 @@ public class UserCtl extends HttpServlet {
 				request.setAttribute("bean", bean);
 				request.setAttribute("msg", "User Added Successfully");
 
-			} else {
+			} if(op.equals("update")) {
 
 				bean.setId(Integer.parseInt(request.getParameter("id")));
 				request.setAttribute("bean", bean);
@@ -85,6 +85,11 @@ public class UserCtl extends HttpServlet {
 				request.setAttribute("msg", "User Updated Successfully");
 			}
 
+			if (op.equals("back")) {
+
+				response.sendRedirect("UserListCtl.do");
+
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 
 			rd.forward(request, response);

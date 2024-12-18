@@ -49,8 +49,15 @@ public class UserRegistrationCtl extends HttpServlet {
 			bean.setAddress(address);
 			bean.setDob(sdf.parse(dob));
 
-			model.add(bean);
-			request.setAttribute("msg", "User Registered Successfully");
+			if (model.findByLoginId(loginId) != null) {
+				request.setAttribute("err", "login id already exits");
+
+			} else {
+				model.add(bean);
+
+				request.setAttribute("msg", "user register succefully ");
+
+			}
 
 			RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
 

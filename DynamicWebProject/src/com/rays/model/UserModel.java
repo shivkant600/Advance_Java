@@ -110,7 +110,6 @@ public class UserModel {
 
 		StringBuffer sql = new StringBuffer("select * from st_user where 1 = 1");
 
-	
 		if (bean != null) {
 
 			if (bean.getFirstname() != null && bean.getFirstname().length() > 0) {

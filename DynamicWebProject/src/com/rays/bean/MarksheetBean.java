@@ -13,14 +13,15 @@ public class MarksheetBean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setRollno(int rollno) {
-		this.rollno = rollno;
-	}
+
 	public int getRollno() {
 		return rollno;
 	}
 
 	
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
 	public String getName() {
 		return name;
 	}

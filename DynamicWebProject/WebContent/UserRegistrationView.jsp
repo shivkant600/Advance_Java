@@ -20,7 +20,19 @@
 			<%
 				if (msg != null) {
 			%>
-			<span><%=msg%></span>
+			<span style="color:blue"><%=msg%></span>
+			<%
+				}
+			%>
+			
+			<%
+				String err = (String) request.getAttribute("err");
+			%>
+
+			<%
+				if (err != null) {
+			%>
+			<span style="color: red"><%=err%></span>
 			<%
 				}
 			%>
